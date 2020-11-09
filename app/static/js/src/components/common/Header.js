@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Responsive from './Responsive';
-// import Button from './Button';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Responsive from "./Responsive";
+// import Button from "./Button";
 
 const HeaderBlock = styled.div`
   position: fixed;
@@ -50,21 +50,21 @@ const Header = ({ user, onLogout }) => {
           <Link to="/" className="logo">
             테스트 폰 관리
           </Link>
-
-          <div className="right">
-            <button to="/login">로그인</button>
-          </div>
-          
-          {/* {user ? (
+          {user ? (
             <div className="right">
               <UserInfo>{user.username}</UserInfo>
-              <Button onClick={onLogout}>로그아웃</Button>
+              <button onClick={onLogout}>로그아웃</button>
             </div>
           ) : (
             <div className="right">
-              <Button to="/login">로그인</Button>
+              <button>
+                <Link to="/login">로그인</Link>
+              </button>
+              <button>
+                <Link to="/register">회원가입</Link>
+              </button>
             </div>
-          )} */}
+          )}
         </Wrapper>
       </HeaderBlock>
       <Spacer />

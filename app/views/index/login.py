@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 from flask_login import login_user, current_user
 from data.user import User
 from db.user_handler import get_login_user
 from message import response, msg
 from home import login_manager
+from util.timestamp import build_timestamp
 from logger import logger, logging_route
 
 login_app = Blueprint('login', __name__)
@@ -35,3 +36,9 @@ def login():
         return jsonify(
             response.build(code_num=msg.SUCCESS,
                            code_message=response.success_to_login(user.user_name)))
+
+@login_app.route("/login", methods=["GET"])
+@logging_route(url="/login", method="GET")
+def login_view():
+    logger.info(">> login view")
+    return render_template("index.html", t=build_timestamp())

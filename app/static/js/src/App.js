@@ -9,8 +9,8 @@ import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <>
-      <Route component={LoginPage} path={"/login"} />
-      <Route component={RegisterPage} path={"/register"} />
+      <Route component={LoginPage} path="/login" exact />
+      <Route component={RegisterPage} path="/register" exact />
       <Route component={DeviceListPage} path="/" exact />
       <Route component={DeviceInfoPage} path="/device/info/:id" exact />
       <Route component={UserInfoPage} path="/user/info/:id" exact />
