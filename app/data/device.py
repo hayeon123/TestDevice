@@ -15,6 +15,6 @@ class Device(database.Model):
         self.phone_number = phone_number
         self.carrier = carrier
         self.state = state
-        self.description =  description
+        self.description = description
 
 
